@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'
+apply plugin: "me.tatarka.retrolambda"
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion "$buildTool"
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile project(':domain')
+
+    compile "io.reactivex.rxjava2:rxjava:$rxJava"
+    compile "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+}
