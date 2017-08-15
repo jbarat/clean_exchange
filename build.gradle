@@ -8,7 +8,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'me.tatarka:gradle-retrolambda:3.6.0'
         classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
-   }
+    }
 }
 
 ext {
@@ -17,9 +17,15 @@ ext {
     targetSdk = 25
     buildTool = "25.0.2"
     supportLibrary = "25.4.0"
+    constraintLayout = '1.0.2'
     dagger = "2.10"
     rxJava = "2.1.0"
     rxAndroid = "2.0.1"
+    okHttp = '3.8.0'
+    retrofit = '2.3.0'
+    mockitoCore = '2.7.1'
+    assertjCore = '3.8.0'
+    junit = '4.12'
 }
 
 allprojects {

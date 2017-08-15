@@ -23,4 +23,17 @@ dependencies {
 
     compile "io.reactivex.rxjava2:rxjava:$rxJava"
     compile "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+
+    compile "com.google.dagger:dagger:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+
+    compile "com.squareup.okhttp3:okhttp:$okHttp"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttp"
+    compile "com.squareup.retrofit2:retrofit:$retrofit"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    compile "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    testCompile "junit:junit:$junit"
+    testCompile "org.mockito:mockito-core:$mockitoCore"
+    testCompile "org.assertj:assertj-core:$assertjCore"
 }
