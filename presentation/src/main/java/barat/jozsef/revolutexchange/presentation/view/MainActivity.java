@@ -23,5 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ((ExchangeApplication) getApplication()).getApplicationComponent().inject(this);
+
+        fixerService.getLatestRates(Currency.getInstance("GBP"))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
     }
 }

@@ -1,9 +1,9 @@
-package barat.jozsef.domain;
+package barat.jozsef.domain.rates;
 
 import java.util.Currency;
 
 import io.reactivex.Single;
 
 public interface RatesDataSource {
-    Single<Boolean> getLatestRates(Currency currency);
+    Single<RatesEntity> getLatestRates(Currency currency);
 }

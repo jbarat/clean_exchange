@@ -4,22 +4,42 @@ import java.util.Currency;
 import java.util.Map;
 
 class FixerResponse {
+
     private Currency base;
     private Map<Currency, Double> rates;
 
-    public Currency getBase() {
+    private FixerResponse(Builder builder) {
+        base = builder.base;
+        rates = builder.rates;
+    }
+
+    Currency getBase() {
         return base;
     }
 
-    public void setBase(Currency base) {
-        this.base = base;
-    }
-
-    public Map<Currency, Double> getRates() {
+    Map<Currency, Double> getRates() {
         return rates;
     }
 
-    public void setRates(Map<Currency, Double> rates) {
-        this.rates = rates;
+    static final class Builder {
+        private Currency base;
+        private Map<Currency, Double> rates;
+
+        Builder() {
+        }
+
+        Builder base(Currency val) {
+            base = val;
+            return this;
+        }
+
+        Builder rates(Map<Currency, Double> val) {
+            rates = val;
+            return this;
+        }
+
+        FixerResponse build() {
+            return new FixerResponse(this);
+        }
     }
 }

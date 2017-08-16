@@ -4,6 +4,8 @@ import android.content.Context;
 
 import javax.inject.Named;
 
+import barat.jozsef.data.logger.DebugLogger;
+import barat.jozsef.domain.logger.Logger;
 import barat.jozsef.revolutexchange.BuildConfig;
 import dagger.Module;
 import dagger.Provides;
@@ -19,6 +21,11 @@ public class ApplicationModule {
     @Provides
     Context context() {
         return application;
+    }
+
+    @Provides
+    Logger logger(DebugLogger debugLogger) {
+        return debugLogger;
     }
 
     @Provides
