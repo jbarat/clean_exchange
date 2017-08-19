@@ -21,4 +21,10 @@ public class RatesConstants {
             UNITED_STATES_DOLLAR,
             EURO
     );
+
+    public static List<String> supportedCurrencyCodes = Arrays.asList(
+            BRITISH_POUND.getCurrencyCode(),
+            UNITED_STATES_DOLLAR.getCurrencyCode(),
+            EURO.getCurrencyCode()
+    );
 }

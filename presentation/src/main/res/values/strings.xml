@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RevolutExchange</string>
+    <string name="main_rate" formatted="false">%s 1 = %s %f</string>
 </resources>
