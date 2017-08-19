@@ -13,4 +13,8 @@ dependencies {
     compileDagger("com.google.dagger:dagger-compiler:$dagger")
 
     compile "io.reactivex.rxjava2:rxjava:$rxJava"
+
+    testCompile "junit:junit:$junit"
+    testCompile "org.mockito:mockito-core:$mockitoCore"
+    testCompile "org.assertj:assertj-core:$assertjCore"
 }

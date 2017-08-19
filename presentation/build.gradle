@@ -4,6 +4,7 @@ apply plugin: "me.tatarka.retrolambda"
 android {
     compileSdkVersion compileSdk
     buildToolsVersion "$buildTool"
+
     defaultConfig {
         applicationId "barat.jozsef.revolutexchange"
         minSdkVersion minSdk
@@ -11,10 +12,16 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -24,6 +31,8 @@ dependencies {
 
     compile "io.reactivex.rxjava2:rxjava:$rxJava"
     compile "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+
+    compile "com.jakewharton.rxbinding2:rxbinding:$rxBinding"
 
     compile "com.google.dagger:dagger:$dagger"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger"

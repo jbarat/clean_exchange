@@ -5,7 +5,10 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import barat.jozsef.data.fixer.FixerService;
 import barat.jozsef.data.fixer.FixerWebService;
+import barat.jozsef.domain.rates.RatesUseCase;
+import barat.jozsef.domain.rates.RatesUseCase.RatesDataSource;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
@@ -20,6 +23,11 @@ public class NetworkModule {
     @Provides
     FixerWebService fixerWebService(Retrofit retrofit) {
         return retrofit.create(FixerWebService.class);
+    }
+
+    @Provides
+    RatesDataSource ratesDataSource(FixerService fixerService) {
+        return fixerService;
     }
 
     @Provides

@@ -21,6 +21,7 @@ ext {
     dagger = "2.10"
     rxJava = "2.1.0"
     rxAndroid = "2.0.1"
+    rxBinding = "2.0.0"
     okHttp = '3.8.0'
     retrofit = '2.3.0'
     mockitoCore = '2.7.1'

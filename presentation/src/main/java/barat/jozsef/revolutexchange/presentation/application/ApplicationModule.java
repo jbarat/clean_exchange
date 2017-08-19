@@ -2,10 +2,10 @@ package barat.jozsef.revolutexchange.presentation.application;
 
 import android.content.Context;
 
+import java.util.Locale;
+
 import javax.inject.Named;
 
-import barat.jozsef.data.logger.DebugLogger;
-import barat.jozsef.domain.logger.Logger;
 import barat.jozsef.revolutexchange.BuildConfig;
 import dagger.Module;
 import dagger.Provides;
@@ -24,8 +24,8 @@ public class ApplicationModule {
     }
 
     @Provides
-    Logger logger(DebugLogger debugLogger) {
-        return debugLogger;
+    Locale locale() {
+        return Locale.UK;
     }
 
     @Provides

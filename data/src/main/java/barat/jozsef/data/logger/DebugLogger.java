@@ -23,7 +23,7 @@ public class DebugLogger implements Logger {
     }
 
     @Override
-    public void logInfo(String message) {
+    public void logMessage(String message) {
         Log.d(DEBUG_LOG, message);
     }
 }
