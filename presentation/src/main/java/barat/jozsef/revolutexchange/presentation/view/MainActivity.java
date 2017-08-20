@@ -23,8 +23,12 @@ import barat.jozsef.revolutexchange.presentation.application.ExchangeApplication
 import barat.jozsef.revolutexchange.presentation.util.DoubleUtil;
 import io.reactivex.observables.ConnectableObservable;
 
-import static barat.jozsef.domain.rates.RatesConstants.supportedCurrencies;
+import static barat.jozsef.domain.DomainConstants.supportedCurrencies;
 
+/**
+ * The Exchange screen. The activity is a dumb view it's only jobs are to inflate the views,
+ * set up the observables on every user changeable view and to set view data when the presenter asks it.
+ */
 public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject MainPresenter mainPresenter;
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onResume() {
         super.onResume();
 
-        attachVIewObservables();
+        attachViewObservables();
     }
 
     @Override
@@ -91,12 +95,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         targetInputEditText = (TextView) findViewById(R.id.target_input);
         baseInputEditText = (EditText) findViewById(R.id.base_input);
 
+        //generate the selectable currencies based on the supported currencies constant
         baseSpinner.setAdapter(new ArrayAdapter<>(this, R.layout.currency_spinner_item, supportedCurrencies));
-
         targetSpinner.setAdapter(new ArrayAdapter<>(this, R.layout.currency_spinner_item, supportedCurrencies));
     }
 
-    private void attachVIewObservables() {
+    private void attachViewObservables() {
         ConnectableObservable<Currency> baseObservable = RxAdapterView.itemSelections(baseSpinner)
                 .map(supportedCurrencies::get)
                 .publish();

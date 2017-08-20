@@ -16,9 +16,9 @@ import io.reactivex.observers.TestObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.schedulers.TestScheduler;
 
-import static barat.jozsef.domain.rates.RatesConstants.BRITISH_POUND;
-import static barat.jozsef.domain.rates.RatesConstants.EURO;
-import static barat.jozsef.domain.rates.RatesConstants.UNITED_STATES_DOLLAR;
+import static barat.jozsef.domain.DomainConstants.BRITISH_POUND;
+import static barat.jozsef.domain.DomainConstants.EURO;
+import static barat.jozsef.domain.DomainConstants.UNITED_STATES_DOLLAR;
 import static barat.jozsef.domain.rates.RatesUseCase.POOLING_LOG_MESSAGE;
 import static barat.jozsef.domain.rates.RatesUseCase.RatesDataSource;
 import static org.assertj.core.api.Assertions.assertThat;

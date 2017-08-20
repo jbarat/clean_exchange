@@ -5,18 +5,19 @@ import java.util.Currency;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import barat.jozsef.domain.DomainConstants;
 import barat.jozsef.domain.logger.Logger;
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 import io.reactivex.subjects.PublishSubject;
 
+import static barat.jozsef.domain.DomainConstants.POLLING_PERIOD;
 import static barat.jozsef.domain.rates.Rate.EMPTY;
-import static barat.jozsef.domain.rates.RatesConstants.POLLING_PERIOD;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 /**
  * Use case to poll the data from the data source. It only polls the data if somebody is subscribed
- * to the {@link #getLatestRate}.
+ * to the {@link #getLatestRate} and a currency is selected to be polled {@link #startPollingRate(Currency)}.
  */
 public class RatesUseCase {
     static final String POOLING_LOG_MESSAGE = "Pooling ";
@@ -45,7 +46,7 @@ public class RatesUseCase {
 
     /**
      * Polls the data source using the latest currency passed to the subject.
-     * It polls every {@link RatesConstants#POLLING_PERIOD} or every time when the polled currency
+     * It polls every {@link DomainConstants#POLLING_PERIOD} or every time when the polled currency
      * changes.
      */
     public Observable<Rate> getLatestRate() {
@@ -55,7 +56,8 @@ public class RatesUseCase {
                 .observeOn(ioScheduler)
                 .doOnNext(this::logPolling)
                 .flatMap(ratesDataSource::getLatestRates)
-                .filter(ratesEntity -> ratesEntity != EMPTY);
+                .filter(ratesEntity -> ratesEntity != EMPTY); //it the result is empty there is
+                                                    // no reason to notify the subscriber of change
     }
 
     private void logPolling(Currency currency) {

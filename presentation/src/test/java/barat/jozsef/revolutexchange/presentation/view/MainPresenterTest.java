@@ -16,10 +16,9 @@ import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 
-import static barat.jozsef.domain.rates.RatesConstants.BRITISH_POUND;
-import static barat.jozsef.domain.rates.RatesConstants.EURO;
-import static barat.jozsef.domain.rates.RatesConstants.UNITED_STATES_DOLLAR;
-import static org.assertj.core.api.Assertions.assertThat;
+import static barat.jozsef.domain.DomainConstants.BRITISH_POUND;
+import static barat.jozsef.domain.DomainConstants.EURO;
+import static barat.jozsef.domain.DomainConstants.UNITED_STATES_DOLLAR;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;

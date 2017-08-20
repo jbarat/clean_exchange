@@ -5,6 +5,9 @@ import android.app.Application;
 import barat.jozsef.revolutexchange.presentation.di.ApplicationComponent;
 import barat.jozsef.revolutexchange.presentation.di.DaggerApplicationComponent;
 
+/**
+ * We need to overwrite the Application to start up the dependency injection before anything else.
+ */
 public class ExchangeApplication extends Application {
 
     private ApplicationComponent applicationComponent;

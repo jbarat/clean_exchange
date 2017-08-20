@@ -1,5 +1,8 @@
 package barat.jozsef.revolutexchange.presentation.util;
 
+/**
+ * Util for Double operations.
+ */
 public class DoubleUtil {
 
     public static double parseDouble(CharSequence charSequence) {
